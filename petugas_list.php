@@ -23,7 +23,7 @@ $no = 0;
     <?php else: ?>
 
         <table class="table table-bordered">
-            <thead class="thead-dark">
+            <thead class="thead-dark text-center">
                 <th>No.</th>
                 <th>Nama Depan</th>
                 <th>Nama Belakang</th>
@@ -35,10 +35,10 @@ $no = 0;
                         <td><?= $no ?></td>
                         <td><?= $data['nama_depan'] ?></td>
                         <td><?= $data['nama_belakang'] ?></td>
-                        <td>
-                            <a href="petugas_detail.php?id=<?= $data['id'] ?>" class="btn btn-info">Detail</a>
-                            <a href="petugas_form.php?id=<?= $data['id'] ?>" class="btn btn-warning">Ubah</a>
-                            <a href="#" class="btn btn-danger">Hapus</a>
+                        <td class="text-right">
+                            <a href="petugas_detail.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-info">Detail</a>
+                            <a href="petugas_form.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-warning">Ubah</a>
+                            <a href="petugas_act_delete.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Hapus</a>
                         </td>
                     </tr>
                 <?php endwhile; ?>

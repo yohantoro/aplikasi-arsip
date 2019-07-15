@@ -1,21 +1,44 @@
 <?php
 require_once 'layout_header.php';
 
-$id = $_GET['id'];
+$namaDepan = '';
+$namaBelakang = '';
+if (isset($_GET['id'])) {
+    $id = $_GET['id'];
+    $action = 'petugas_act_update.php';
+    $judul = 'Ubah Data Petugas';
+} else {
+    $id = 0;
+    $action = 'petugas_act_create.php';
+    $judul = 'Buat Data Petugas';
+}
+
 $query = "SELECT * FROM petugas WHERE `id` = " . $id;
-
 $result = mysqli_query($con, $query);
-$data = mysqli_fetch_assoc($result);
+if (!$result) { // jika query gagal
+    die(mysqli_error($con)); // Aplikasi berhenti dan menampilkan error
+}
 
-$namaDepan = $data['nama_depan'];
-$namaBelakang = $data['nama_belakang'];
+/* Jika query berhasil dan datanya tidak kosong */
+if (mysqli_num_rows($result) > 0) {
+    while ($data = mysqli_fetch_assoc($result)) {
+        $namaDepan = $data['nama_depan'];
+        $namaBelakang = $data['nama_belakang'];
+    }
+}
 
 ?>
 
 <div class="petugas-form">
-    <h1>Data Petugas</h1>
+    <h1><?= $judul ?></h1>
 
-    <form action="petugas_action.php" method="post">
+    <p>
+        <a href="petugas_list.php" class="btn btn-secondary">Kembali ke Daftar Petugas</a>
+    </p>
+
+    <form action="<?= $action ?>" method="post">
+        <input type="hidden" name="id" value="<?= $id ?>">
+
         <div class="form-group">
             <label for="nama-depan">Nama Depan</label>
             <input type="text" name="nama_depan" class="form-control" id="nama-depan" aria-describedby="nama-depan" value="<?= $namaDepan ?>" required>

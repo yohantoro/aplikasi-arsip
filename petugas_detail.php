@@ -28,8 +28,8 @@ if (!$result) { // jika query gagal
         $data = mysqli_fetch_assoc($result);
     ?>
         <p>
-            <a href="petugas_list.php" class="btn btn-secondary">Kembali ke Daftar Petugas</a>
-            <a href="petugas_form.php?id=<?= $id ?>" class="btn btn-warning">Ubah</a>
+            <a href="petugas_list.php" class="btn btn-sm btn-secondary">Kembali ke Daftar Petugas</a>
+            <a href="petugas_form.php?id=<?= $id ?>" class="btn btn-sm btn-warning">Ubah</a>
             <a href="petugas_act_delete.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Hapus</a>
         </p>
 

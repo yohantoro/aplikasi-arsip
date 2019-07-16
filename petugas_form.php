@@ -33,7 +33,7 @@ if (mysqli_num_rows($result) > 0) {
     <h1><?= $judul ?></h1>
 
     <p>
-        <a href="petugas_list.php" class="btn btn-secondary">Kembali ke Daftar Petugas</a>
+        <a href="petugas_list.php" class="btn btn-sm btn-secondary">Kembali ke Daftar Petugas</a>
     </p>
 
     <form action="<?= $action ?>" method="post">

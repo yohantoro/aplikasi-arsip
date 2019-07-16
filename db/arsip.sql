@@ -1,4 +1,4 @@
--- Adminer 4.2.5 MySQL dump
+-- Adminer 4.7.1 MySQL dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -73,5 +73,8 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+INSERT INTO `user` (`id`, `username`, `password`, `petugas_id`, `last_login`) VALUES
+(1,	'admin',	'$2y$10$g6ioDBIOZshUaLKJak8mx.990Qd2HH4zVuzTx6yHGGK5AzHYnpiVe',	0,	'2019-07-16 21:56:46'),
+(2,	'petugas',	'$2y$10$g6ioDBIOZshUaLKJak8mx.990Qd2HH4zVuzTx6yHGGK5AzHYnpiVe',	0,	'2019-07-16 22:11:36');
 
--- 2019-07-16 08:34:42
+-- 2019-07-16 16:46:25

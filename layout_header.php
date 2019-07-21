@@ -21,7 +21,7 @@ include 'config/app.php';
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
         <div class="container">
-            <a class="navbar-brand" href="#">Arsip</a>
+            <a class="navbar-brand" href="index.php">Arsip</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -31,16 +31,21 @@ include 'config/app.php';
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Beranda <span class="sr-only">(current)</span></a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Surat Masuk</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="dropdown-surat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Surat</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdown-surat">
+                            <a class="dropdown-item" href="smasuk_list.php">Surat Masuk</a>
+                            <a class="dropdown-item" href="skeluar_list.php">Surat Keluar</a>
+                        </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Surat Keluar</a>
+                        <a class="nav-link" href="disposisi_list.php">Disposisi</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="dropdown-referensi" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Referensi</a>
                         <div class="dropdown-menu" aria-labelledby="dropdown-referensi">
                             <a class="dropdown-item" href="petugas_list.php">Petugas</a>
+                            <a class="dropdown-item" href="user_list.php">User</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -52,3 +57,9 @@ include 'config/app.php';
     </nav>
 
     <main role="main" class="container">
+
+    <?php if (isset($_SESSION['user'])): ?>
+        <p class="text-right">
+            <small>Anda login sebagai <?= $_SESSION['user']['name'] ?></small>
+        </p>
+    <?php endif; ?>

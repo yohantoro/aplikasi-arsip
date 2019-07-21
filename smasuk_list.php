@@ -42,8 +42,8 @@ if ($hasil == false) {
                     <td><?php echo $row['pengirim'] ?></td>
                     <td>
                         <a href="smasuk_detail.php?id=<?= $row['id'] ?>" class="btn btn-info">Detail</a>
-                        <a href="#" class="btn btn-warning">Ubah</a>
-                        <a href="#" class="btn btn-danger">Hapus</a>
+                        <a href="smasuk_form.php?id=<?= $row['id'] ?>" class="btn btn-warning">Ubah</a>
+                        <a href="smasuk_act_delete.php?id=<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Are you sure?')">Hapus</a>
                     </td>
                 </tr>
             <?php endwhile; ?>

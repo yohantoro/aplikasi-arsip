@@ -18,15 +18,8 @@ if ($result == false) { // jika query gagal
 
 ?>
 
-<div class="petugas-list">
+<div class="surat-masuk-list">
     <h1>Detail Surat Masuk</h1>
-
-    <p>
-        <a href="smasuk_list.php" class="btn btn-sm btn-secondary">Kembali ke Daftar Surat Masuk</a>
-        <a href="smasuk_form.php?id=<?= $id ?>" class="btn btn-sm btn-warning">Ubah</a>
-        <a href="smasuk_act_delete.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Hapus</a>
-    </p>
-
 
     <?php if (mysqli_num_rows($result) <= 0): ?>
         <div class="alert alert-danger" role="alert">
@@ -35,6 +28,11 @@ if ($result == false) { // jika query gagal
     <?php else:
         $data = mysqli_fetch_assoc($result);
     ?>
+        <p>
+            <a href="smasuk_list.php" class="btn btn-sm btn-secondary">Kembali ke Daftar Surat Masuk</a>
+            <a href="smasuk_form.php?id=<?= $id ?>" class="btn btn-sm btn-warning">Ubah</a>
+            <a href="smasuk_act_delete.php?id=<?= $data['id'] ?>" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Hapus</a>
+        </p>
 
         <table class="table table-bordered">
             <tbody>
